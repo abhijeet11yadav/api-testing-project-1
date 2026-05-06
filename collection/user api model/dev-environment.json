@@ -1,0 +1,16 @@
+{
+	"id": "d4ba28ad-f4f3-4a00-b890-d1d3399e2463",
+	"name": "dev",
+	"values": [
+		{
+			"key": "basu_url",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-05-06T07:48:35.872Z",
+	"_postman_exported_using": "Postman/12.1.1"
+}
