@@ -1,0 +1,241 @@
+{
+  "info": {
+    "_postman_id": "32aecb2b-598c-41bc-9a09-8b7010107ee1",
+    "name": "headers related test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29981915"
+  },
+  "item": [
+    {
+      "name": "list obj case 1",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/ff8081819d82fab6019e06301b1414d5",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "ff8081819d82fab6019e06301b1414d5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "list single obj case 1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/1",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "list single obj case 1 Copy",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "host": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Connection",
+            "value": "closed",
+            "type": "text"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "text",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/plain",
+            "type": "text"
+          },
+          {
+            "key": "isadmin",
+            "value": "True",
+            "type": "text"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*",
+            "type": "text"
+          },
+          {
+            "key": "X-Forwarded-For",
+            "value": "127.0.01",
+            "type": "text"
+          },
+          {
+            "key": "Origin",
+            "value": "http://evil.com",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/1",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "adding obj test 1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"motorola\",\n    \"id\": 13\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "adding obj test 1 Copy",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\n  \"name\": \"abhijeet\",\n\n  \"data\": {\n\n    \"year\": 2019,\n\n    \"price\": 1849.99,\n\n    \"CPU model\": \"Intel Core i9\",\n\n    \"Hard disk size\": \"1 TB\"\n\n  }\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updating  object test 1",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "content-type": true
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "x-xss-protection",
+            "value": "0;",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Apple MacBook Pro 16\",\n    \"data\": {\n        \"year\": 2019,\n        \"price\": 2049.99,\n        \"CPU model\": \"Intel Core i9\",\n        \"Hard disk size\": \"1 TB\",\n        \"color\": \"silver\"\n    }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/ff8081819d82fab6019e0631d29814d7",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "ff8081819d82fab6019e0631d29814d7"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

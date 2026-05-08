@@ -1,0 +1,2 @@
+postman collection run 'resfull api function test.postman_collection.json' -e dev-environment.json --reporters html --reporter-html-export output.html
+
