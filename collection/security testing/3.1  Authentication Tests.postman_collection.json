@@ -8,6 +8,21 @@
   "item": [
     {
       "name": "test1 fecth collection",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
       "request": {
         "method": "GET",
         "header": [
@@ -81,7 +96,7 @@
           "listen": "test",
           "script": {
             "exec": [
-              "pm.test(\"Status code is 403 API key is missing\", function () {",
+              "pm.test(\"Status code is 403 API key not matched\", function () {",
               "    pm.response.to.have.status(403);",
               "});"
             ],
@@ -116,6 +131,47 @@
       "response": []
     },
     {
+      "name": "test1 fecth collection random auth token Copy 2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 403 API key not matched\", function () {",
+              "    pm.response.to.have.status(403);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "7d4c2b91-a8f5-4e3d-8c72-5b9a1f6e4d20",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.restful-api.dev/collections",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "collections"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "test2 adding object to colletcion",
       "request": {
         "method": "POST",
@@ -124,6 +180,65 @@
             "key": "x-api-key",
             "value": "5e43e47a-8ee6-4bd8-9d7e-b923f76bbb9d",
             "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Apple MacBook Pro 16\",\n  \"data\": {\n    \"year\": 2019,\n    \"price\": 1849.99,\n    \"CPU model\": \"Intel Core i9\",\n    \"Hard disk size\": \"1 TB\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/collections/products/objects?collectionName =products",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "collections",
+            "products",
+            "objects"
+          ],
+          "query": [
+            {
+              "key": "collectionName ",
+              "value": "products"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test2 adding object to colletcion no auth token test Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 403 API key is missing\", function () {",
+              "    pm.response.to.have.status(403);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "5e43e47a-8ee6-4bd8-9d7e-b923f76bbb9d",
+            "type": "text",
+            "disabled": true
           }
         ],
         "body": {
@@ -202,6 +317,65 @@
       "response": []
     },
     {
+      "name": "test2 adding object to new colletcion Copy no auth toen test 2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 403 API key is missing\", function () {",
+              "    pm.response.to.have.status(403);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "5e43e47a-8ee6-4bd8-9d7e-b923f76bbb9d",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Apple MacBook Pro 16\",\n  \"data\": {\n    \"year\": 2019,\n    \"price\": 1849.99,\n    \"CPU model\": \"Intel Core i9\",\n    \"Hard disk size\": \"1 TB\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/collections/products/objects?collectionName =new_product",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "collections",
+            "products",
+            "objects"
+          ],
+          "query": [
+            {
+              "key": "collectionName ",
+              "value": "new_product"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "test2 updating object to colletcion Copy",
       "request": {
         "method": "PUT",
@@ -210,6 +384,60 @@
             "key": "x-api-key",
             "value": "5e43e47a-8ee6-4bd8-9d7e-b923f76bbb9d",
             "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"newwwwwwwwwApple MacBook Pro 16\",\n  \"data\": {\n    \"year\": 2015629,\n    \"price\": 55,\n    \"CPU model\": \"Intel Corwsse i9\",\n    \"Hard disk size\": \"1 TB\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/collections/products/objects/ff8081819d82fab6019e89644ac82ef7",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "collections",
+            "products",
+            "objects",
+            "ff8081819d82fab6019e89644ac82ef7"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test2 updating object to colletcion Copy 2 no auth token test",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 403 API key is missing\", function () {",
+              "    pm.response.to.have.status(403);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "5e43e47a-8ee6-4bd8-9d7e-b923f76bbb9d",
+            "type": "text",
+            "disabled": true
           }
         ],
         "body": {
@@ -305,6 +533,36 @@
             "key": "x-api-key",
             "value": "5e43e47a-8ee6-4bd8-9d7e-b923f76bbb9d",
             "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.restful-api.dev/collections/products/objects/ff8081819d82fab6019e894ea9c42eed",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "collections",
+            "products",
+            "objects",
+            "ff8081819d82fab6019e894ea9c42eed"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 4 delete an objects Copy no auth token test",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "5e43e47a-8ee6-4bd8-9d7e-b923f76bbb9d",
+            "type": "text",
+            "disabled": true
           }
         ],
         "url": {
