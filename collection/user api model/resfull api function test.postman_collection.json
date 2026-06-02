@@ -12,12 +12,16 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{base_url}}/objects",
+          "raw": "https://api.restful-api.dev/objects/",
+          "protocol": "https",
           "host": [
-            "{{base_url}}"
+            "api",
+            "restful-api",
+            "dev"
           ],
           "path": [
-            "objects"
+            "objects",
+            ""
           ]
         }
       },
@@ -246,6 +250,35 @@
           "path": [
             "objects",
             ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "adding an object",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\n  \"name\": \"new\",\n\n  \"data\": {\n\n    \"year\": 2019,\n\n    \"price\": 1849.99,\n\n    \"CPU model\": \"Intel Core i9\",\n\n    \"Hard disk size\": \"1 TB\"\n\n  }\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects"
           ]
         }
       },

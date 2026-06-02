@@ -1,0 +1,459 @@
+{
+  "info": {
+    "_postman_id": "cf21dbaf-ba27-42ea-a1be-72b573123fef",
+    "name": "response status code validation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29981915"
+  },
+  "item": [
+    {
+      "name": "test 1 200 ok",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is  200 ok\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "host": true
+        }
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Forwarded",
+            "value": "for=1.2.3.4",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 1 200 ok , ignore body content Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 ok , ignoring the body content\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "content-type": true,
+          "connection": true,
+          "accept-encoding": true,
+          "accept": true,
+          "user-agent": true,
+          "host": true,
+          "content-length": true
+        }
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Origin",
+            "value": "192.168.64.2.",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/atom+xml",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"hello\"\n}zvsvs\nsdjg uyfge5e655eejfiwuhfuigwbug ^t^%r^yfwt^ ui",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 1 401 unauthrozied",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 401, unauthorized token or user\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "host": true
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "true",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "admin",
+            "value": "1",
+            "type": "text"
+          },
+          {
+            "key": "Host",
+            "value": "https://evil.vom",
+            "type": "text"
+          },
+          {
+            "key": "Max-Forwards",
+            "value": "https://evil.com/",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/../etc/hosts/<input type=\"https://evil.com/\">",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "..",
+            "etc",
+            "hosts",
+            "<input type=\"https:",
+            "",
+            "evil.com",
+            "\">"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 1 400 bad request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is  400 bad request\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "abhijeet",
+              "description": "null",
+              "type": "text",
+              "uuid": "bca04eb3-d28e-403b-bf90-7b7bee080630"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/%$%&$",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "%$%&$"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 2 200 ok",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is  200 ok\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/1",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 2 404 not found",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is  404 not found\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Forwarded-For",
+            "value": "1.2.3.4",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/ ..\"error\": \"Object with id=ddddd was not found.\"}\"}\"}\"}\"}..\\",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            " ..\"error\": \"Object with id=ddddd was not found.\"}\"}\"}\"}\"}..",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 2 404 not found Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is  404 not found\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Forwarded-For",
+            "value": "1.2.3.4",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/abhijeet",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "abhijeet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 3 adding obj",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\n  \"name\": \"abhijeet46666666666\",\n\n  \"data\": {\n\n    \"year\": 2019,\n\n    \"price\": 1849.99,\n\n    \"CPU model\": \"Intel Core i9\",\n\n    \"Hard disk size\": \"1 TB\"\n\n  }\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test 3 adding obj 409  dublicate resource creation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200 || pm.response.code === 201) {",
+              "",
+              "    pm.test(\"Duplicate resource allowed - new object created with different ID\", function () {",
+              "        pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "    });",
+              "",
+              "} else if (pm.response.code === 409) {",
+              "",
+              "    pm.test(\"Duplicate resource blocked correctly with 409 Conflict\", function () {",
+              "        pm.response.to.have.status(409);",
+              "    });",
+              "",
+              "} else {",
+              "",
+              "    pm.test(\"Unexpected response received\", function () {",
+              "        throw new Error(\"Unexpected status code: \" + pm.response.code);",
+              "    });",
+              "",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\n  \"name\": \"abhijeet46666666666\",\n\n  \"data\": {\n\n    \"year\": 2019,\n\n    \"price\": 1849.99,\n\n    \"CPU model\": \"Intel Core i9\",\n\n    \"Hard disk size\": \"1 TB\"\n\n  }\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
